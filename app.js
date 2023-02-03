@@ -4,7 +4,7 @@ const app = express();
 const path = require("path");
 const fs = require("fs");
 // const cookieParser = require("cookie-parser");
-const keyCodeRoute = require("./src/routers/key-code");
+// const keyCodeRoute = require("./src/routers/key-code");
 const cors = require("cors");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -27,10 +27,10 @@ const filePath = path.join(__dirname, "key-code.txt");
 // });
 
 app.get("/", (req, res) => {
-  fs.readFile(filePath, "utf-8", (err, data) => {
-    if (err) throw err;
-    res.send(data);
-  });
+  // fs.readFile(filePath, "utf-8", (err, data) => {
+  //   if (err) throw err;
+  //   res.send(data);
+  // });
 });
 
 module.exports = app;
