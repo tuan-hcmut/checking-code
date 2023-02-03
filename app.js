@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
   //   if (err) throw err;
   //   res.send(data);
   // });
+  res.send("hh");
 });
 
 module.exports = app;
