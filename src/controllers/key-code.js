@@ -8,5 +8,5 @@ exports.getKeyCode = (req, res) => {
     console.log(data);
   });
 
-  res.send("");
+  res.send("123234");
 };
