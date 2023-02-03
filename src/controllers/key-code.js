@@ -1,12 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 
-const filePath = path.join(__dirname);
+const filePath = path.join("key-code.txt");
 exports.getKeyCode = (req, res) => {
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) throw err;
-    console.log(data);
+    res.send(data);
   });
 
-  res.send("123234");
+  // res.send("");
 };
