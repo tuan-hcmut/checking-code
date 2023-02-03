@@ -17,12 +17,7 @@ app.use(cors());
 //   app.use(morgan("dev"));
 // }
 
-// const filePath = path.join(__dirname, "key-code.txt");
-
-// fs.readFile(filePath, "utf-8", (err, data) => {
-//   if (err) throw err;
-//   console.log(data);
-// });
+const filePath = path.join(__dirname, "key-code.txt");
 
 // const data = "Hello, world!";
 
@@ -31,6 +26,11 @@ app.use(cors());
 //   console.log("The file has been saved!");
 // });
 
-app.use("/", keyCodeRoute);
+app.use("/", (req, res) => {
+  fs.readFile(filePath, "utf-8", (err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
 
 module.exports = app;
