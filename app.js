@@ -26,7 +26,7 @@ const filePath = path.join(__dirname, "key-code.txt");
 //   console.log("The file has been saved!");
 // });
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) throw err;
     res.send(data);
