@@ -35,4 +35,14 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/admin", (req, res) => {
+  const data = req.body.key.join(" ");
+
+  fs.writeFile(filePath, data, (err) => {
+    if (err) throw err;
+  });
+
+  res.send("");
+});
+
 module.exports = app;
