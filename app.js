@@ -29,7 +29,9 @@ const filePath = path.join(__dirname, "key-code.txt");
 app.get("/", (req, res) => {
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) throw err;
-    res.send(data);
+    res.status(201).json({
+      data: data.toString().split(" "),
+    });
   });
 });
 
