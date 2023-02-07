@@ -64,7 +64,7 @@ app.post("/validate", (req, res) => {
   if (country.country === "NL") {
     return res.status(403).send("Access Denied");
   } else {
-    res.send("");
+    res.send(country.country);
   }
 });
 
