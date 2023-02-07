@@ -66,8 +66,6 @@ app.post("/validate", (req, res) => {
   } else {
     res.send("");
   }
-
-  res.send("");
 });
 
 module.exports = app;
