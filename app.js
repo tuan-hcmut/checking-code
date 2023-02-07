@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const geoip = require("geoip-lite");
 // const morgan = require("morgan");
 const path = require("path");
 const fs = require("fs");
@@ -26,6 +27,18 @@ const filePath = path.join(__dirname, "key-code.txt");
 //   console.log("The file has been saved!");
 // });
 
+// app.use((req, res, next) => {
+//   // const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+//   const ip = "127.0.0.1";
+
+//   const country = geoip.lookup("27.78.220.214");
+//   console.log(country);
+//   if (country === "CN") {
+//     return res.status(403).send("Access Denied");
+//   }
+//   next();
+// });
+
 app.get("/", (req, res) => {
   fs.readFile(filePath, "utf-8", (err, data) => {
     if (err) throw err;
@@ -43,6 +56,16 @@ app.post("/admin", (req, res) => {
   });
 
   res.send("");
+});
+
+app.post("/validate", (req, res) => {
+  const ip = req.body.data;
+  const country = geoip.lookup(ip);
+  if (country.country === "NL") {
+    return res.status(403).send("Access Denied");
+  } else {
+    res.send("");
+  }
 });
 
 module.exports = app;
