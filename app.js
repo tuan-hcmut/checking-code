@@ -61,6 +61,7 @@ app.post("/admin", (req, res) => {
 app.post("/validate", (req, res) => {
   const ip = req.body.data;
   const country = geoip.lookup(ip);
+  console.log(ip, country.country);
   if (country.country === "NL") {
     return res.status(403).send("Access Denied");
   } else {
