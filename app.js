@@ -65,10 +65,9 @@ app.post("/validate", (req, res) => {
   //   return res.status(403).send("Access Denied");
   // } else {
   //   res.send("");
-  }
+  // }
 
   res.send("");
-
 });
 
 module.exports = app;
