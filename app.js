@@ -59,13 +59,13 @@ app.post("/admin", (req, res) => {
 });
 
 app.post("/validate", (req, res) => {
-  // const ip = req.body.data;
-  // const country = geoip.lookup(ip);
-  // if (country.country === "NL") {
-  //   return res.status(403).send("Access Denied");
-  // } else {
-  //   res.send("");
-  // }
+  const ip = req.body.data;
+  const country = geoip.lookup(ip);
+  if (country.country === "NL") {
+    return res.status(403).send("Access Denied");
+  } else {
+    res.send("");
+  }
 
   res.send("");
 });
