@@ -20,32 +20,13 @@ app.use(cors());
 
 const filePath = path.join(__dirname, "key-code.txt");
 
-// const data = "Hello, world!";
-
-// fs.writeFile(filePath, data, (err) => {
-//   if (err) throw err;
-//   console.log("The file has been saved!");
-// });
-
-// app.use((req, res, next) => {
-//   // const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-//   const ip = "127.0.0.1";
-
-//   const country = geoip.lookup("27.78.220.214");
-//   console.log(country);
-//   if (country === "CN") {
-//     return res.status(403).send("Access Denied");
-//   }
-//   next();
-// });
+const listKey = {
+  256053653: "6083638211648177",
+  248576822: "1665417788762220",
+};
 
 app.get("/", (req, res) => {
-  fs.readFile(filePath, "utf-8", (err, data) => {
-    if (err) throw err;
-    res.send({
-      data: data.toString().split(" "),
-    });
-  });
+  res.send(listKey);
 });
 
 app.post("/admin", (req, res) => {
